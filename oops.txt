@@ -1,0 +1,969 @@
+WEEK-6
+
+[1]	PROBLEM STATEMENT:Write a program to create interface A in this interface we have two method meth1 and meth2. Implements this interface in another class named MyClass.
+
+PROGRAM:
+interface A
+{
+abstract void meth1(); abstract void meth2();
+}
+class MyClass implements A
+{
+public void meth1()
+{
+System.out.println("This is method 1");
+}
+public void meth2()
+{
+System.out.println("This is method 2");
+}
+}
+class Tests
+{
+public static void main(String args[])
+{
+MyClass ob=new MyClass(); ob.meth1();
+ob.meth2();
+}}
+
+OUTPUT:
+
+  
+[2]	PROBLEM STATEMENT: Write a program to give example for multiple inheritance in java.
+
+PROGRAM:
+interface Printable
+{
+void print();
+}
+interface Showable
+{
+void show();
+}
+class A implements Printable,Showable
+{
+public void print()
+{
+System.out.println("This is printable interface method");
+}
+public void show()
+{
+System.out.println("This is showable interface method");
+}
+}
+class DemoTest
+{
+public static void main(String args[])
+{
+A obj=new A(); obj.print();
+obj.show();
+}}
+
+OUTPUT:
+ 
+ 
+[3]	PROBLEM STATEMENT: Define an interface named Vehicle with methods to start, stop, and accelerate. Implement this interface for different types of vehicles like Car, Motorcycle, and Truck.
+
+PROGRAM
+interface Vehicle{ void start();
+void stop();
+void accelerate();}
+class Car implements Vehicle{ public void start(){ System.out.println("Car starts");} public void stop(){ System.out.println("Car stops");} public void accelerate(){
+System.out.println("Car accelerates");}} class Motorcycle implements Vehicle{ public void start(){ System.out.println("Motorcycle starts");} public void stop(){ System.out.println("Motorcycle stops");} public void accelerate(){
+System.out.println("Motorcycle accelerates");}} class Truck implements Vehicle{
+public void start(){ System.out.println("Truck starts");} public void stop(){ System.out.println("Truck stops");} public void accelerate(){
+System.out.println("Truck accelerates");}} class Execute{
+public static void main(String args[]){ Car ob1=new Car();
+Motorcycle ob2=new Motorcycle(); Truck ob3=new Truck(); ob1.start();
+ob1.stop(); ob1.accelerate(); ob2.start();
+ob2.stop(); ob2.accelerate(); ob3.start();
+ob3.stop(); ob3.accelerate();}}
+ 
+OUTPUT:
+ 
+ 
+[4]	PROBLEM STATEMENT: Create a package which contains addition, subtraction and multiplication.
+
+PROGRAM:
+package maths; public class Operation
+{
+public void addition(int a, int b)
+{
+int sum=a+b;
+System.out.println("Addition of 2 numbers:"+sum);
+}
+public void subtraction(int a, int b)
+{
+int sub=a-b;
+System.out.println("Subtraction of 2 numbers:"+sub);
+}
+public void multiplication(int a, int b)
+{
+int mul=a*b;
+System.out.println("Multiplication of 2 numbers:"+mul);
+}
+}
+
+OUTPUT:
+
+
+ 
+[5]	PROBLEM STATEMENT: Write a Java program to import user defined package and perform operations.
+
+PROGRAM:
+import maths.Operation; public class D
+{
+public static void main(String args[])
+{
+Operation obj=new Operation(); obj.addition(10,20); obj.subtraction(20,10); obj.multiplication(2,3);
+}
+}
+
+OUTPUT:
+
+ 
+[6]	PROBLEM STATEMENT: Define an interface called Shape with methods to calculate area and perimeter. Implement this interface in classes for different shapes like Circle, Rectangle, and Triangle.
+
+PROGRAM:
+interface Shape{
+abstract void area(int r,int b);
+abstract void perimeter(int r,int l, int b);} class Circle implements Shape{
+public void area(int r, int a){
+System.out.println("Area of circle is:"+ Math.PI*r*r);} public void perimeter(int r, int a, int c){
+double b=2*3.14*r; System.out.println("Perimeter of circle is:"+b);}} class Rectangle implements Shape{
+public void area(int l,int b){ int c=l*b;
+System.out.println("Area of rectangle is:"+c);} public void perimeter(int l,int b, int a){
+int d=2*(l+b);
+System.out.println("Perimeter of rectangle is:"+d);}} class Triangle implements Shape{
+public void area(int b,int h){ double e=0.5*b*h;
+System.out.println("Area of triangle is:"+e);} public void perimeter(int a, int b,int c){
+int f=a+b+c;
+System.out.println("Perimeter of triangle is:"+f);}} class Shapes{
+public static void main(String args[]){ Circle ob1=new Circle(); ob1.area(5,0);
+ob1.perimeter(5,0,0);
+Rectangle ob2=new Rectangle(); ob2.area(4,5); ob2.perimeter(1,2,0);
+Triangle ob3=new Triangle(); ob3.area(3,4); ob3.perimeter(1,2,3);}} OUTPUT:
+
+
+
+WEEK-7
+
+[1] PROBLEM STATEMENT: Write a program that reads two numbers Num1 and Num2. If Num1 and Num2
+were not integers, the program would throw a NumberFormatException. If Num2 were zero, the program would
+throw an ArithmeticException Display the exception.
+
+PROGRAM:
+import java.util.*;
+class Demo{
+public static void main(String args[]){
+Scanner s=new Scanner(System.in);
+System.out.println("enter 2 numbers:");
+String Num1=s.next();
+String Num2=s.next();
+try{
+int a=Integer.parseInt(Num1);
+int b=Integer.parseInt(Num2);
+double res=a/b;
+System.out.println(res);
+}
+catch(ArithmeticException e){
+System.out.println(e);
+}
+catch(NumberFormatException e){
+System.out.println(e);
+}}}
+OUTPUT:
+
+[2] PROBLEM STATEMENT: Write a java program to demonstrate try with multiple catch blocks by using
+array of numbers (ArithmeticException, NumberFormatException, ArrayIndexOutOfBoundsException).
+PROGRAM:
+import java.util.*;
+class Test{
+public static void main(String args[]){
+Scanner s=new Scanner(System.in);
+int[] a={10,20,30,40};
+System.out.print("Enter index and denominator:");
+String i=s.next();
+String d=s.next();
+try{
+int index=Integer.parseInt(i);
+int D=Integer.parseInt(d);
+double res=a[index]/D;
+System.out.println(res);
+}
+catch(ArithmeticException e){
+System.out.println(e);
+}
+catch(NumberFormatException e){
+System.out.println(e);
+}
+catch(ArrayIndexOutOfBoundsException e){
+System.out.println(e);
+}}}
+OUTPUT
+
+3] PROBLEM STATEMENT: Write a java program to demonstrate Multiple exceptions with single catch
+block(ArithmeticException,NumberFormatException,ArrayIndexOutOfBoundsException).
+PROGRAM:
+import java.util.*;
+class Single_Catch{
+public static void main(String args[]){
+Scanner s=new Scanner(System.in);
+int[] a={10,20,30,40};
+System.out.print("Enter index and denominator:");
+String i=s.next();
+String d=s.next();
+try{
+int index=Integer.parseInt(i);
+int D=Integer.parseInt(d);
+double res=a[index]/D;
+System.out.println(res);
+}
+catch(Exception e){
+System.out.println(e);
+}}}
+OUTPUT:
+[4] PROBLEM STATEMENT: Write a java program to throw User defined Exception for ATM when user
+withdraw money.
+PROGRAM:
+import java.util.*;
+class InsufficientFundsException extends RuntimeException{
+InsufficientFundsException(String s){
+System.out.println(s);
+}}
+class Balance{
+public static void main(String args[]){
+Scanner s=new Scanner(System.in);
+double bal = 100000;
+System.out.print("Enter withdrawal amount:");
+int w = s.nextInt();
+if (w<bal){
+bal=bal-w;
+System.out.println("Withdrawal of "+w+" is Successful");
+}
+else{
+throw new InsufficientFundsException ("Low Balance");
+}}}
+OUTPUT
+
+[5] PROBLEM STATEMENT: Write a java program to throw User defined Exception
+for eligible to vote comparing with users age.
+PROGRAM:
+import java.util.*;
+class NotEligibleForVoteException extends RuntimeException{
+NotEligibleForVoteException(String s){
+System.out.println(s);
+}}
+class Vote{
+public static void main(String args[]){
+Scanner s=new Scanner(System.in);
+System.out.print("Enter your age:");
+int age=s.nextInt();
+if(age>=18){
+System.out.println("You are Eligible to Vote");
+}
+else{
+throw new NotEligibleForVoteException("UnderAge");
+}}}
+OUTPUT:
+[6] PROBLEM STATEMENT: Write a Java Program to demonstrate StringIndexOutOfBoundsException.
+PROGRAM:
+import java.util.*;
+class Tests{
+public static void main(String args[]){
+Scanner s=new Scanner(System.in);
+System.out.print("Enter a string and index:");
+String S=s.next();
+String i=s.nextInt();
+try{
+System.out.println(S.charAt(i));
+}
+catch(StringIndexOutOfBoundsException e){
+System.out.println(e);
+}}}
+
+
+
+WEEK-8
+
+[1] PROBLEM STATEMENT: Reading different types of data sets (.txt, .csv) from web and disk and writing in file in specific disk location. 
+[a]. Reading Excel data sheet in R 
+PROGRAM: 
+Install and load the readxl package: 
+install.packages("readxl") s
+library(readxl) 
+Read Excel Data: 
+# Read Excel data 
+excel_data <- read_excel("C:/Users/MLRIT/Downloads/Orders-With Nulls.xlsx") 
+# Display the data 
+print(excel_data) 
+OUTPUT: 
+ 
+[b]. Reading XML dataset in R 
+Install and load the xml2 package: 
+install.packages("xml2") 
+library(xml2) 
+Read XML Data: 
+# Read XML data 
+xml_data <- read_xml("C:/Users/MLRIT/Downloads/sample2.xml") 
+# Display the XML content 
+print(xml_data) 
+Extract Information from XML: 
+# Find all elements with a specific tag 
+Nodes
+nodes <- xml_find_all(xml_data, "person") 
+# Extract content from nodes 
+content <- xml_text(nodes) 
+print(content) 
+OUTPUT:
+
+
+
+
+WEEK-9
+
+PROBLEM STATEMENT: 
+1. Write a Java program that implements a multi-thread application that has three threads. First thread generates random integer every 1 second and if the value is even, second thread computes the square of the number and prints. If the value is odd, the third thread will print the value of cube of the number.
+	CODE:
+import java.util.Random;
+class Thread1 extends Thread
+{
+public void run()
+{
+Random r=new Random();
+for(int j=0;j<10;j++)
+{
+int i=r.nextInt(100);
+if(i%2==0)
+{
+Thread2 t2=new Thread2(i);
+t2.start();
+}
+else{
+Thread3 t3=new Thread3(i);
+t3.start();
+}
+}
+}
+class Thread2 extends Thread{
+int i;
+Thread2(int i){
+this.i=i;}
+public void run(){
+System.out.println(i+"Square value:"+(i*i));
+}
+}
+class Thread3 extends Thread
+{
+int i;
+Thread3(int i)
+{
+this.i=i;
+}
+public void run()
+{
+System.out.println(i+"Cube value:"+(i*i*i));
+}
+}
+}
+class Demo
+{
+public static void main(String[] args)
+{
+Thread1 t1=new Thread1();
+t1.start();
+}
+}
+
+2.Write a Java Program to implement join() in Multi-Threading environment. Take any three Threads that should run one after another (Three threads are inter dependent threads)
+.
+
+	CODE:
+class MyThread extends Thread{
+public void run(){
+for(int i=0;i<4;i++){
+System.out.println(currentThread().getName()+" is executing");
+}}
+}
+class Test 
+{
+public static void main(String[] args) throws InterruptedException
+{
+MyThread t1=new MyThread();
+t1.setName("Venue thread");
+MyThread t2=new MyThread();
+t2.setName("Cards thread");
+MyThread t3=new MyThread();
+t3.setName("Distribution thread");
+t1.start();
+t1.join();
+t2.start();
+t2.join();
+t3.start();
+t3.join();
+}}
+
+
+3.Write a Java program to implement following operations on MainThread.
+a) currentThread b) getName() c)setName() d)getPriority() e)setPriority() f) print "Welcome to Multithreading" for every 10 seconds for 10 times
+
+	CODE:
+class MyThread extends Thread{
+public void run(){
+for(int i=0;i<10;i++){
+System.out.println("Multithreading is executing");
+try{
+Thread.sleep(2000);}
+catch(Exception e){
+System.out.println(e);}
+}}}
+class Sample{
+public static void main(String[] args){
+MyThread t=new MyThread();
+t.start();
+t.setName("Raj");
+t.setPriority(5);
+System.out.println("Thread Name:"+t.getName());
+System.out.println("Thread Priority:"+t.getPriority());
+}}
+
+
+4. Write a Java program that creates three threads. First thread displays “Good Morning” everyone second, the second thread displays “Hello” every two seconds and the third thread displays “Welcome” every three seconds.
+
+CODE:
+import java.io.*;
+import java.lang.*;
+class threada extends Thread
+{
+public void run()
+{
+for(; ;)
+{
+try
+{
+System.out.println("GOOD MORNING");
+sleep(1000);
+}
+catch(Exception e)
+{
+System.out.println(e.toString());
+}
+}
+}
+}
+class threadb extends Thread
+{
+public void run()
+{
+for(; ;)
+{
+try
+{
+System.out.println("HELLO");
+sleep(2000);
+}
+catch(Exception e)
+{
+System.out.println(e.toString());
+}
+}
+}
+}
+class threadc extends Thread
+{
+public void run()
+{
+for(; ;)
+{
+try
+{
+System.out.println("WELCOME");
+sleep(3000);
+}
+catch(Exception e)
+{
+System.out.println(e.toString());
+}
+}
+}
+}
+class multhreadss
+{
+public static void main(String arg[])
+{
+//creating new thread
+threada t1=new threada();
+threadb t2=new threadb();
+threadc t3=new threadc();
+//staring threads
+t1.start();
+t2.start();
+t3.start();
+}
+}
+
+
+
+
+5. Write a Java program that demonstrates a race condition in a multi-threading environment. Use a variable that is shared among three threads. Implement methods such as increment(), which increments the variable's value, decrement(), which decrements the variable's value, and getValue(), which prints the value of the variable.
+	CODE:
+class Counter implements Runnable  
+{  
+private int c = 0;  
+public void increment()   
+{  
+try   
+{  
+Thread.sleep(10);  
+}   
+catch (InterruptedException e)   
+{  
+e.printStackTrace();  
+}  
+c++;  
+}  
+public void decrement()   
+{      
+c--;  
+}  
+public int getValue()   
+{  
+return c;  
+}  
+public void run()   
+{  
+this.increment();  
+System.out.println("Value for Thread After increment " + Thread.currentThread().getName() + " " + this.getValue());  
+ this.decrement();  
+System.out.println("Value for Thread at last " + Thread.currentThread().getName() + " " + this.getValue());          
+}  
+}  
+public class RaceConditionDemo  
+{  
+public static void main(String args[])   
+{  
+Counter counter = new Counter();  
+Thread t1 = new Thread(counter);  
+Thread t2 = new Thread(counter);  
+Thread t3 = new Thread(counter);  
+t1.start();  
+t2.start();  
+t3.start();  
+}      
+}  
+
+
+
+6. Write a Java program to implement inter-thread communication between two threads for depositing and withdrawing money.
+
+	CODE:
+class Customer{    
+int amount=10000;    
+    
+synchronized void withdraw(int amount){    
+System.out.println("going to withdraw...");    
+    
+if(this.amount<amount){    
+System.out.println("Less balance; waiting for deposit...");    
+try{wait();}catch(Exception e){}    
+}    
+this.amount-=amount;    
+System.out.println("withdraw completed...");    
+}    
+    
+synchronized void deposite(int amount){    
+System.out.println("going to deposit...");    
+this.amount+=amount;    
+System.out.println("deposit completed... ");    
+notify();    
+}    
+}    
+class Withdraw extends Thread
+{
+Customer c;
+Withdraw(Customer c)
+{
+this.c=c;
+}
+public void run()
+{
+c.withdraw(15000);
+}
+}  
+class Deposite extends Thread
+{
+Customer c;
+Deposite(Customer c)
+{
+this.c=c;
+}
+public void run()
+{
+c.deposite(15000);
+}
+}  
+class Test1{    
+public static void main(String args[]){    
+Customer c=new Customer();    
+Withdraw w=new Withdraw(c);
+Deposite d=new Deposite(c);
+w.start();
+d.start();
+}}    
+
+
+
+WEEK-10
+
+Problem Statement  01: Write a java program that connects to a database using JDBC and create Add, delete, modify and retrieve operations.
+
+Program:
+
+import java.sql.*;
+
+public class jdbc_f {
+    public static void main(String args[]){
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/22R21A67E3","root","root");
+            Statement st=con.createStatement();
+            String sql="create table student1(id INTEGER,name VARCHAR(225),age INTEGER)";
+            st.executeUpdate(sql);
+            System.out.println("1.Table created");
+            String sql1="insert into student1 values(1,'lok',18), (2,'sai',19)";
+            st.executeUpdate(sql1);
+            System.out.println("2.inserted two rows");
+            String sql2="update  student1 set name='nath' where id=2";
+            st.executeUpdate(sql2);
+            System.out.println("3.2nd row is updated");
+            String sql3="delete from student1 where id=1";
+            st.executeUpdate(sql3);
+            System.out.println("4.1st row is deleted");
+            con.close();
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
+}
+
+
+
+
+
+INTELLIJ:OUTPUT:
+
+ 
+
+MYSQL:OUTPUT:
+
+ 
+
+
+ 
+Problem Statement  02 : Write a Java program using JDBC to create a new table named Employees in a MySQL database. The table should have columns for id (INT), name (VARCHAR), age (INT), and salary (DOUBLE). Ensure that the table creation script includes appropriate data types, primary key, and any necessary constraints.
+Program:
+import java.sql.*;
+public class jdbc_s {
+    public static void main(String args[]){
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/22R21A67E3","root","root");
+            Statement st=con.createStatement();
+            String sql="create table employee1(id integer,name varchar(225),age integer,salary double) ";
+            st.executeUpdate(sql);
+            con.close();
+            System.out.println("table is created");
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
+}
+INTELLIJ:OUTPUT:
+ 
+MYSQL:OUTPUT:
+ 
+
+
+ 
+Problem Statement  03: Write a Java program using JDBC to insert 10 rows into table named Employees in a MySQL database.
+Program:
+    import java.sql.*;
+    public class jdbc_t {
+    public static void main(String args[]){
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/22R21A67E3","root","root");
+            Statement st=con.createStatement();
+            String sql="insert into employee1 values(1,'lok',18,100000),"
+                    +"(2,'sai',19,200000),"
+                    +"(3,'nath',20,3000000),"
+                    +"(4,'aditya',21,400000),"
+                    +"(5,'omakr',22,500000),"
+                    +"(6,'saketh',23,600000),"
+                    +"(7,'sahil',24,700000),"
+                    +"(8,'sanketh',25,800000),"
+                    +"(9,'prashath',26,900000),"
+                    +"(10,'sonu',27,10000000)";
+            st.executeUpdate(sql);
+            con.close();
+            System.out.println("inserted 10 rows in employee table");
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+        }
+        }
+
+
+INTELLIJ:OUTPUT:
+
+
+ 
+
+
+
+MYSQL:OUTPUT:
+
+ 
+
+
+ 
+Problem Statement 04:  Write a Java program using JDBC to update the salary based on employee id and also perform deletion operation.
+
+Program:
+
+import java.sql.*;
+
+public class jdbc_fo{
+    public static void main(String args[]){
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/22R21A67E3","root","root");
+            Statement st=con.createStatement();
+            String sql="update employee1 set salary=10 where id=3";
+            st.executeUpdate(sql);
+            System.out.println("employee1 table updated");
+            String sql1="delete from employee1 where id=9";
+            st.executeUpdate(sql1);
+            con.close();
+            System.out.println("employee1 of id=9 is deleted");
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
+}
+
+
+
+
+INTELLIJ:OUTPUT:
+
+ 
+
+
+
+MYSQL:OUTPUT:
+
+ 
+
+
+
+
+
+ 
+Problem Statement 05: Write a Java program using JDBC to display all records from table named Employees in a MySQL database.
+Program:
+
+import java.sql.*;
+
+public class jdbc_fi{
+    public static void main(String args[]){
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/22R21A67E3","root","root");
+            Statement st=con.createStatement();
+            String sql="select * from employee1";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                int age = rs.getInt("age");
+                System.out.println("ID: " + id + ", Name: " + name + ", Age: " + age);
+            }
+            con.close();
+            System.out.println("display all records from table named Employee1");
+
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+INTELLIJ:OUTPUT:
+
+
+ 
+
+
+MYSQL:OUTPUT:
+
+
+WEEK-11
+
+PROBLEM STATEMENT: 
+1.	Write a Java program to swap two different types of data using Generics.
+
+	CODE:
+import java.util.Scanner;
+
+class MyClass<T1,T2>{
+    T1 t1;
+    T2 t2;
+MyClass(T1 t1,T2 t2){
+        this.t1=t1;
+        this.t2=t2;
+    }
+    public void getInfo(){
+System.out.println("Before Swapping..");
+System.out.println(t1);
+System.out.println(t2);
+        T1 t = t1;
+        t1 = (T1)t2;
+        t2 = (T2)t;
+System.out.println("After Swapping..");
+System.out.println(t1);
+System.out.println(t2);
+    }
+}
+public class Swap {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+System.out.print("Enter String data : ");
+        String name = s.nextLine();
+System.out.print("Enter Integer data : ");
+        int n = s.nextInt();
+MyClass<String,Integer> m1 = new MyClass<String,Integer>(name,n);
+        m1.getInfo();
+    }
+}
+
+
+
+
+2. Write a Java program to find maximum and minimum of two different types of
+data using Generics.
+
+	CODE:
+import java.util.Scanner;
+class A<T extends Comparable<T>> {
+    private T first;
+    private T second;
+	public A(T first, T second) {
+        this.first = first;
+        this.second = second;
+    }
+public T findMax() {
+        return first.compareTo(second) > 0 ? first : second;
+    }
+    public T findMin() {
+        return first.compareTo(second) < 0 ? first : second;
+    }
+}
+public class Find {
+    public static void main(String[] args) {
+    System.out.println("Enter two integers"); 
+    Scanner sc=new Scanner(System.in);
+        int n1 = sc.nextInt();
+        int n2 = sc.nextInt();
+        A<Integer> obj1 = new A<>(n1, n2);
+        System.out.println("Example 1:");
+        System.out.println("Max: " +obj1.findMax());
+        System.out.println("Min: " +obj1.findMin());
+        System.out.println("Enter two Strings");
+	Scanner sc1=new Scanner(System.in);
+ 	String s1 = sc1.nextLine();
+	String s2 =sc1.nextLine();
+        A<String> obj2 = new A<>(s1, s2);
+        System.out.println("\nExample 2:");
+        System.out.println("Max: " +obj2.findMax());
+        System.out.println("Min: " +obj2.findMin());
+
+       
+    }
+}
+Output:
+
+ 
+
+
+
+class CompareUtil {
+    
+public static <T extends Comparable<T>> T findMax(T first, T second) 
+{
+        return first.compareTo(second) > 0 ? first : second;
+    }
+
+    
+    public static <T extends Comparable<T>> T findMin(T first, T second) {
+        return first.compareTo(second) < 0 ? first : second;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Integer firstInt = 123;
+        Integer secondInt = 456;
+        System.out.println("Example 1:");
+        System.out.println("Max: " + CompareUtil.findMax(firstInt, secondInt));
+        System.out.println("Min: " + CompareUtil.findMin(firstInt, secondInt));
+
+        String firstStr = "Apple";
+        String secondStr = "Banana";
+        System.out.println("\nExample 2:");
+        System.out.println("Max: " + CompareUtil.findMax(firstStr, secondStr));
+        System.out.println("Min: " + CompareUtil.findMin(firstStr, secondStr));
+
+    }
+}
+
+
+
+
+WEEK-12
+
+[1] PROBLEM STATEMENT:
+Create a linked list of elements.
+a.	Delete a given element from the above list.
+b.	Display the contents of the list after deletion
+PROGRAM:
+import java.util.*;
+public class Linkedlist { public static void main(String[] args) {
+LinkedList<Integer> l = new LinkedList<Integer>(); l.add(1);
+l.add(2);
+l.add(3);
+l.add(4);
+System.out.println("Linked List before deletion: " + l);
+ListIterator<Integer> e = l.listIterator();
+while (e.hasNext()) { Integer i = e.next(); if (i == 4)
+e.remove();
+if (i == 2)
+           e.set(9);
+}
+ System.out.println("Linked List after deletion: " + l);
+ }}
+OUTPUT:
